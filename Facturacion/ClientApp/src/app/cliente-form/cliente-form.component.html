@@ -1,0 +1,166 @@
+
+
+<div class="row" style="margin-top:15px;" >
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h1>
+         {{modoEdicion ? 'Editar' : 'Agregar'}} Cliente
+          <span class="glyphicon glyphicon-user"> </span>
+        </h1>
+      </div>
+      <div class="panel-body">
+        <form #form = "ngForm" (ngSubmit)="save()" [formGroup]="formGroup" novalidate>
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('Nombres').touched || formGroup.get('Nombres').dirty) && !formGroup.get('Nombres').valid }">
+            <label class="col-md-2 control-label"
+                   for="nombresId">Nombres</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="text"
+                   class="form-control"
+                   id="exampleInputEmail1"
+                   placeholder="Nombre"
+                   required
+                   formControlName="Nombres" />
+            <span class="help-block" *ngIf="(formGroup.get('Nombres').touched || formGroup.get('Nombres').dirty) && formGroup.get('Nombres').errors">
+              <span *ngIf="formGroup.get('Nombres').errors.required">
+                El campo nombre es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('Apellidos').touched || formGroup.get('Apellidos').dirty) && !formGroup.get('Apellidos').valid }">
+            <label class="col-md-2 control-label"
+                   for="apellidosId">Apellidos</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="text"
+                   class="form-control"
+                   id="exampleInputEmail2"
+                   placeholder="Apellidos"
+                   required
+                   formControlName="Apellidos" />
+            <span class="help-block" *ngIf="(formGroup.get('Apellidos').touched || formGroup.get('Apellidos').dirty) && formGroup.get('Apellidos').errors">
+              <span *ngIf="formGroup.get('Apellidos').errors.required">
+                El campo apellido es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('Cedula').touched || formGroup.get('Cedula').dirty) && !formGroup.get('Cedula').valid }">
+            <label class="col-md-2 control-label"
+                   for="cedulaId">Cédula</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="text"
+                   class="form-control"
+                   id="exampleInputEmail3"
+                   placeholder="Cédula"
+                   required
+                   formControlName="Cedula" />
+            <span class="help-block" *ngIf="(formGroup.get('Cedula').touched || formGroup.get('Cedula').dirty) && formGroup.get('Cedula').errors">
+              <span *ngIf="formGroup.get('Cedula').errors.required">
+                El campo cédula es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('FechaNacimiento').touched || formGroup.get('FechaNacimiento').dirty) && !formGroup.get('FechaNacimiento').valid }">
+            <label class="col-md-2 control-label"
+                   for="cedulaId">Fecha Nacimiento</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="datetime-local"
+                   class="form-control"
+                   id="exampleInputEmail4"
+                   placeholder="Fecha de Nacimiento"
+                   required
+                   [(ngModel)]="FechaNacimiento"
+                   formControlName="FechaNacimiento"
+                 
+                   />
+            <span class="help-block" *ngIf="(formGroup.get('FechaNacimiento').touched || formGroup.get('FechaNacimiento').dirty) && formGroup.get('FechaNacimiento').errors">
+              <span *ngIf="formGroup.get('FechaNacimiento').errors.required">
+                El campo fecha de nacimiento es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('Direccion').touched || formGroup.get('Direccion').dirty) && !formGroup.get('Direccion').valid }">
+            <label class="col-md-2 control-label"
+                   for="cedulaId">Dirección</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="text"
+                   class="form-control"
+                   id="exampleInputEmail5"
+                   placeholder="Dirección"
+                   required
+                   formControlName="Direccion" />
+            <span class="help-block" *ngIf="(formGroup.get('Direccion').touched || formGroup.get('Direccion').dirty) && formGroup.get('Direccion').errors">
+              <span *ngIf="formGroup.get('Direccion').errors.required">
+                El campo dirección es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('Telefono').touched || formGroup.get('Telefono').dirty) && !formGroup.get('Telefono').valid }">
+            <label class="col-md-2 control-label"
+                   for="cedulaId">Teléfono</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="text"
+                   class="form-control"
+                   id="exampleInputEmail6"
+                   placeholder="Teléfono"
+                   required
+                   formControlName="Telefono" />
+            <span class="help-block" *ngIf="(formGroup.get('Telefono').touched || formGroup.get('Telefono').dirty) && formGroup.get('Telefono').errors">
+              <span *ngIf="formGroup.get('Telefono').errors.required">
+                El campo teléfono es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('Email').touched || formGroup.get('Email').dirty) && !formGroup.get('Telefono').valid }">
+            <label class="col-md-2 control-label"
+                   for="cedulaId">Email</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="text"
+                   class="form-control"
+                   id="exampleInputEmail7"
+                   placeholder="Email"
+                   required
+                   formControlName="Email" />
+            <span class="help-block" *ngIf="(formGroup.get('Email').touched || formGroup.get('Email').dirty) && formGroup.get('Email').errors">
+              <span *ngIf="formGroup.get('Email').errors.required">
+                El campo Email es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+          <!--(click)="save()"-->
+          <button type="submit" class="btn btn-info btn-lg" [disabled]="form.invalid">Guardar      <span class="glyphicon glyphicon-floppy-disk"> </span></button>
+          <button class="btn btn-danger btn-lg"
+                  type="button"
+                  [routerLink]='["/clientes"]'>
+            Cancelar         <span class="glyphicon glyphicon-floppy-remove"> </span>
+          </button>
+        </form>
+        </div>
+        </div>
+      </div>
+    </div>
+

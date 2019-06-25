@@ -1,0 +1,51 @@
+<div style="align-content:center;">
+  <h1>
+    Clientes
+    <span class="glyphicon glyphicon-user"></span>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <div>
+          <button [routerLink]='["/agregarCliente"]' type="button" class="btn btn-info">
+            <span class="glyphicon glyphicon-plus"></span>   Nuevo Cliente
+          </button>
+          <input [(ngModel)]="searchText" style="width:205px; position:absolute; left: 580px; top:12px;" type="text" class="form-control" id="inputPassword2" placeholder="Buscar">
+
+          <button style="position:absolute; left:800px;" type="button" class="btn btn-info">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Table -->
+      <table class='table'>
+    <thead>
+
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha Nacimiento</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of clientes | filter : searchText">
+        <td>{{persona.nombres + ' '+persona.apellidos}} </td>
+        <td>{{persona.fechaNacimiento | date: 'dd-MM-yyyy'}}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" [routerLink]='["/editarCliente/" + persona.id]'>Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="delete(persona)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    
+    </div>
+
+  </div>
+</div>
