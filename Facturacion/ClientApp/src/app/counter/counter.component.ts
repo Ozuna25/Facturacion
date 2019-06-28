@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ICliente } from './Cliente';
 import { ClienteServiceService } from '../services/cliente-service.service';
 
+//import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-counter-component',
   templateUrl: './counter.component.html'
@@ -9,8 +11,13 @@ import { ClienteServiceService } from '../services/cliente-service.service';
 export class CounterComponent implements OnInit {
   clientes: ICliente[];
 
-  constructor(private ClienteServices: ClienteServiceService) { }
+  page_size :number = 10
+  page_number: number = 1
   filterPost: '';
+
+  constructor(private ClienteServices: ClienteServiceService
+    /*,private toastr: ToastrService*/) { }
+ 
 
   ngOnInit() {
     this.cargarData();
@@ -24,8 +31,16 @@ export class CounterComponent implements OnInit {
   }
 
   delete(cliente: ICliente) {
-    this.ClienteServices.deleteCliente(cliente.id.toString())
-      .subscribe(cliente => this.cargarData(),
-        error => console.error(error));
+    if (confirm('Seguro quiere eliminar este cliente ?')) {
+      this.ClienteServices.deleteCliente(cliente.id.toString())
+        .subscribe(cliente => {
+          this.cargarData();
+          //this.toastr.warning('Eliminado Correctamente', 'Clientes');
+    },
+    err => {
+      console.log(err);
+    })
   }
+  }
+
 }

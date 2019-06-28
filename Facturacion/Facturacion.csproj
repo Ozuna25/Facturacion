@@ -40,11 +40,13 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\counter\Cliente.ts" />
     <None Remove="ClientApp\src\app\filter.pipe.ts" />
+    <None Remove="ClientApp\src\app\pagination.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\counter\Cliente.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\filter.pipe.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\pagination.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

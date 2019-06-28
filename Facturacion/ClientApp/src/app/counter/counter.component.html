@@ -34,7 +34,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let persona of clientes | filter : searchText">
+      <tr *ngFor="let persona of clientes | filter : searchText | paginate:page_size:page_number">
         <td>{{persona.nombres + ' '+persona.apellidos}} </td>
         <td>{{persona.fechaNacimiento | date: 'dd-MM-yyyy'}}</td>
         <td>
@@ -44,8 +44,8 @@
       </tr>
     </tbody>
   </table>
-    
-    </div>
+
 
   </div>
 </div>
+
