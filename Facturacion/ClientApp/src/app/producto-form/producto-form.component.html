@@ -1,0 +1,68 @@
+
+
+<div class="row" style="margin-top:15px;" >
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h1>
+         {{modoEdicion ? 'Editar' : 'Agregar'}} Producto
+          <span class="glyphicon glyphicon-tags"></span>
+        </h1>
+      </div>
+      <div class="panel-body">
+        <form #form = "ngForm" (ngSubmit)="save()" [formGroup]="formGroup" novalidate>
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('descripcion').touched || formGroup.get('descripcion').dirty) && !formGroup.get('descripcion').valid }">
+            <label class="col-md-2 control-label"
+                   for="descripcionId">Descripción</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="text"
+                   class="form-control"
+                   id="exampleInputEmail1"
+                   placeholder="Descripción"
+                   required
+                   formControlName="descripcion" />
+            <span class="help-block" *ngIf="(formGroup.get('descripcion').touched || formGroup.get('descripcion').dirty) && formGroup.get('descripcion').errors">
+              <span *ngIf="formGroup.get('descripcion').errors.required">
+                El campo descripción es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+
+          <div class="form-group"
+               [ngClass]="{'has-error': (formGroup.get('precio').touched || formGroup.get('precio').dirty) && !formGroup.get('precio').valid }">
+            <label class="col-md-2 control-label"
+                   for="precioId">Precio</label>
+
+            <!--<div class="col-md-8">-->
+            <input type="number"
+                   class="form-control"
+                   id="exampleInputEmail2"
+                   placeholder="Precio"
+                   required
+                   formControlName="precio" />
+            <span class="help-block" *ngIf="(formGroup.get('precio').touched || formGroup.get('precio').dirty) && formGroup.get('precio').errors">
+              <span *ngIf="formGroup.get('precio').errors.required">
+                El campo precio es requerido
+              </span>
+            </span>
+            <!--</div>-->
+          </div>
+
+         
+          <!--(click)="save()"-->
+          <button type="submit" class="btn btn-info btn-lg" [disabled]="form.invalid">Guardar      <span class="glyphicon glyphicon-floppy-disk"> </span></button>
+          <button class="btn btn-danger btn-lg"
+                  type="button"
+                  [routerLink]='["/productos"]'>
+            Cancelar         <span class="glyphicon glyphicon-floppy-remove"> </span>
+          </button>
+        </form>
+        </div>
+        </div>
+      </div>
+    </div>
+

@@ -11,7 +11,7 @@ namespace Facturacion.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Codigo { get; set; }
+        public string Codigo { get; set; } 
         [ForeignKey("Clientes")]
         public int ClienteId { get; set; }
         public string Descripcion { get; set; }
@@ -19,6 +19,6 @@ namespace Facturacion.Models
         public float Subtotal { get; set; }
         public float Itbis { get; set; }
         public float Total { get; set; }
-
+        
     }
 }

@@ -11,7 +11,7 @@
       <!-- Default panel contents -->
       <div class="panel-heading">
         <div>
-          <button [routerLink]='["/agregarCliente"]' type="button" class="btn btn-info">
+          <button [routerLink]='["/agregarProducto"]' type="button" class="btn btn-info">
             <span class="glyphicon glyphicon-plus"></span>   Nuevo Articulo
           </button>
           <input style="width:205px; position:absolute; left: 580px; top:12px;" type="text" class="form-control" id="inputPassword2" placeholder="Buscar">
@@ -28,18 +28,20 @@
         <thead>
 
           <tr>
-            <th>Codigo</th>
+            <th>Código</th>
             <th>Descripción</th>
+            <!--<th>Precio</th>-->
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let persona of personas">
-            <td>{{persona.nombre}}</td>
-            <td>{{persona.fechaNacimiento | date: 'dd-MM-yyyy'}}</td>
+          <tr *ngFor="let producto of productos">
+            <td>{{producto.id}}</td>
+            <td>{{producto.descripcion}}</td>
+            <!--<td>{{producto.precio'}}</td>-->
             <td>
-              <button class="btn btn-primary bt-sm" [routerLink]='["/personas-editar/" + persona.id]'>Editar</button>
-              <button class="btn btn-danger btn-sm" (click)="delete(persona)">Borrar</button>
+              <button class="btn btn-primary btn-sm" [routerLink]='["/editarProducto/" + producto.id]'>Editar</button>
+              <button class="btn btn-danger btn-sm" (click)="delete(producto)">Eliminar</button>
             </td>
           </tr>
         </tbody>

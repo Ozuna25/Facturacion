@@ -6,8 +6,6 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -15,8 +13,10 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 import { ClienteServiceService } from './services/cliente-service.service';
+import { ProductoService } from './services/producto-service';
 import { FilterPipe } from './filter.pipe';
 import { Pagination } from './pagination';
+import { ProductoFormComponent } from './producto-form/producto-form.component';
 //import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
@@ -28,6 +28,7 @@ import { Pagination } from './pagination';
     CounterComponent,
     FetchDataComponent,
     ClienteFormComponent,
+    ProductoFormComponent,
     FilterPipe,
     Pagination
   ],
@@ -44,10 +45,14 @@ import { Pagination } from './pagination';
       { path: 'productos', component: FetchDataComponent },
       { path: 'agregarCliente', component: ClienteFormComponent },
       { path: 'editarCliente/:id', component: ClienteFormComponent },
+      { path: 'agregarProducto', component: ProductoFormComponent },
+      { path: 'editarProducto/:id', component: ProductoFormComponent },
     ])
   ],
   providers: [
-    ClienteServiceService,],
+    ClienteServiceService,
+    ProductoService,
+    ],
 
   bootstrap: [AppComponent,
     NavMenuComponent,
@@ -55,6 +60,7 @@ import { Pagination } from './pagination';
     CounterComponent,
     FetchDataComponent,
     ClienteFormComponent,
+    ProductoFormComponent,
    ]
 })
 export class AppModule { }

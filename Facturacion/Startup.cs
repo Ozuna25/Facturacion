@@ -35,6 +35,7 @@ namespace Facturacion
             });
 
             services.AddTransient<IClientesServices, ClientesService>();
+            services.AddTransient<IProductosServices, ProductosService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

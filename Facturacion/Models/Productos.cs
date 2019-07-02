@@ -8,8 +8,8 @@ namespace Facturacion.Models
     public class Productos
     {
         public int Id { get; set; }
-        public int Descripcion { get; set; }
+        public string Descripcion { get; set; }
         public float Precio { get; set; }
-        public DateTime FechaCreacion { get; set; }
+        public DateTime FechaCreacion { get; set; } = DateTime.Now;
     }
 }
